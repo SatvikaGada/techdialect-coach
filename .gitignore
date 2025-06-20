@@ -1,0 +1,18 @@
+# Python
+backend/venv/
+*.pyc
+__pycache__/
+
+# Node
+frontend/node_modules/
+frontend/build/
+*.log
+
+# OS/system
+.DS_Store
+Thumbs.db
+
+# Binaries
+*.dll
+*.lib
+*.exe

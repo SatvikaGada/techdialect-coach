@@ -5,14 +5,18 @@ import tempfile
 import random
 from pymongo import MongoClient
 from urllib.parse import quote_plus
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
 # Whisper model (load once)
 model = whisper.load_model("base")
-username = quote_plus("gadasatvika2005")
-password = quote_plus("SatvikaPari@315")
+username = quote_plus(os.getenv("MONGO_USERNAME"))
+password = quote_plus(os.getenv("MONGO_PASSWORD"))
 
 MONGO_URI = f"mongodb+srv://{username}:{password}@techdialect-cluster.rhy1kiz.mongodb.net/?retryWrites=true&w=majority&appName=techdialect-cluster"
 client = MongoClient(MONGO_URI)
